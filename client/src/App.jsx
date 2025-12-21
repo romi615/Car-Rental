@@ -14,7 +14,7 @@ import ManageBookings from "./pages/owner/ManageBookings";
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
-  const isOwnerPath = useLocation().pathname.startsWith("owner");
+  const isOwnerPath = useLocation().pathname.startsWith("/owner");
 
   return (
     <>
@@ -25,13 +25,11 @@ function App() {
         <Route path="/car-details/:id" element={<CarDetails />} />
         <Route path="/cars" element={<Cars />} />
         <Route path="/my-bookings" element={<MyBookings />} />
-        <Route path="/owner" element={<Layout/>}>
-        <Route index element={<Dashboard/>}/>
-        <Route index="add-car" element={<AddCar/>}/>
-        <Route index="manage-cars" element={<ManageCars/>}/>
-        <Route index="manage-bookings" element={<ManageBookings/>}/>
-
-
+        <Route path="/owner" element={<Layout />}>
+          <Route index element={<Dashboard />} />
+          <Route path="add-car" element={<AddCar />} />
+          <Route path="manage-cars" element={<ManageCars />} />
+          <Route path="manage-bookings" element={<ManageBookings />} />
         </Route>
       </Routes>
 
